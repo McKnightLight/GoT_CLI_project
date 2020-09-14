@@ -8,4 +8,4 @@ require_relative '../lib/character'
 require_relative '../lib/api'
 require_relative '../lib/cli'
 
-CLI.new.run
+CLI.new.run 

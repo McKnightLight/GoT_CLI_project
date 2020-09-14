@@ -1,8 +1,8 @@
 class CLI
   def run
     puts "Hello! Welcome to An API of Ice and Fire!"
-    puts "Time can be tricky in Westeros. Please hold while we search the Seven Kingdoms for your favorite characters..."
-    API.scrape_characters
+    puts "Consulting the Three Eyed Raven to find your favorite characters."
+    API.get_characters
     list_characters
     menu
   end
@@ -47,7 +47,7 @@ class CLI
   end
 
   def display_character_details(character)
-    API.scrape_character_details(character)
+    API.get_character_details(character)
     puts "Here is what we know about #{character.name}:"
     puts "Culture: #{character.culture}"
     puts "Titles: #{character.titles}"

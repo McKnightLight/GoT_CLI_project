@@ -1,6 +1,6 @@
-require "got_api/version"
+#require "got_api/version"
 
-module GotApi
-  class Error < StandardError; end
+#module GotApi
+  #class Error < StandardError; end
   # Your code goes here...
-end
+#end
