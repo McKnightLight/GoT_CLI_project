@@ -1,12 +1,11 @@
-class Characters
+class Character
   @@all = []
   
   attr_accessor :name, :url, :culture, :titles, :aliases, :playedBy
 
   def initialize(person)
-    self.name = person [:name]
-    self.url = person [:url]
-
+    self.name = person[:name]
+    self.url = person[:url]
     @@all << self 
   end
 

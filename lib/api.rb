@@ -1,15 +1,15 @@
 class API
-  def self.get_characters
-    resp=RestClient.get('https://anapioficeandfire.com/api/')
-    binding.pry
+  def self.scrape_characters
+    resp = RestClient.get('https://anapioficeandfire.com/api/characters/')
+    #binding.pry
     got_hash = JSON.parse(resp.body, symbolize_names:true)
     got_arr = got_hash[:results]
-    got_arr.collect do |person|
-      character.new(person)
+    got_arr.collect do | person |
+      Character.new(person)
     end
   end
 
-  def self.get_characters details(character)
+  def self.scrape_character_details(character)
     resp = RestClient.get(character.url)
     char_hash = JSON.parse(resp.body, symbolize_names:true)
     character.culture = char_hash[:culture]
