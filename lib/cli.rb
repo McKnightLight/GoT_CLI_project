@@ -1,15 +1,16 @@
 class CLI
   def run
     puts "Hello! Welcome to An API of Ice and Fire!"
-    puts "Consulting the Three Eyed Raven to find your favorite characters."
+    puts "Consulting the Three-Eyed Raven to find your favorite characters."
+    #binding.pry
     API.get_characters
     list_characters
     menu
   end
 
   def list_characters
-    Character.all.each.with_index(1) do | character, i | 
-      puts "#{i}. #{character.name}"
+    Characters.all.each.with_index(1) do | characters, i | 
+      puts "#{i}. #{characters.name}"
     end
   end
 
@@ -17,13 +18,13 @@ class CLI
     puts "Please select the number of a character."
     #puts "Type 'Bran' to give up."
     input = gets.chomp
-    if !input.to_i.between?(1, Character.all.count)
+    if !input.to_i.between?(1, Characters.all.count)
       puts "A character has no name. Please try again."
       list_characters
       menu
     elsif
-      character = Character.all[input.to_i-1]
-      display_character_details(character)
+      characters = Characters.all[input.to_i-1]
+      display_character_details(characters)
     #else 
       #input == Bran
       #puts "Like Rob Stark, you left us too soon."
@@ -46,12 +47,12 @@ class CLI
     end
   end
 
-  def display_character_details(character)
-    API.get_character_details(character)
-    puts "Here is what we know about #{character.name}:"
-    puts "Culture: #{character.culture}"
-    puts "Titles: #{character.titles}"
-    puts "Aliases: #{character.aliases}"
-    puts "Played By: #{character.playedBy}"
+  def display_character_details(characters)
+    API.get_character_details(characters)
+    puts "Here is what we know about #{characters.name}:"
+    puts "Culture: #{characters.culture}"
+    puts "Titles: #{characters.titles}"
+    puts "Aliases: #{characters.aliases}"
+    puts "Played By: #{characters.playedBy}"
   end
 end
