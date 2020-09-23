@@ -1,6 +1,6 @@
 class CLI
   def run
-    puts "Hello! Welcome to An API of Ice and Fire!"
+    puts "Hello! Welcome to the Game of Thrones Character Search!"
     puts "Consulting the Three-Eyed Raven to find your favorite characters."
     #binding.pry
     API.get_characters
@@ -15,12 +15,12 @@ class CLI
   end
 
   def menu
-    puts "Please select the number of a character."
-    puts "Type 'Long Live Bran' to give up."
+    puts "Please enter the number of a character to pull up their details."
+    puts "Or type 'Bran' to give up."
     input = gets.chomp.downcase
     if 
-      input == "long live bran"
-      puts "Like Rob Stark, you left us too soon."
+      input == "bran"
+      puts "We understand. It's not how we wanted things to end, either."
       puts "Goodbye!"
       exit
     elsif !input.to_i.between?(1, Characters.all.count)
@@ -31,31 +31,34 @@ class CLI
       characters = Characters.all[input.to_i-1]
       display_character_details(characters)
     end
-    puts "Would you like to try another character?"
+    puts "Would you like to view another character?"
     #puts "Would you like to see the next page of characters?"
+    #puts "Would you like to see only main characters?"
     puts "Please enter Y or N"
     another_character = gets.strip.downcase
     if another_character == "y"
       list_characters
       menu 
     elsif another_character == "n"
-      puts "We will miss you like we miss Ned Stark!"
+      puts "Like Ned Stark, you left us too soon."
+      puts "Goodbye!"
       exit
     else
       puts "Was that a typo with your Little Finger?"
-      list_characters 
-      menu 
+      puts "Please try again."
+      list_characters
+      menu
     end
   end
 
   def display_character_details(characters)
     API.get_character_details(characters)
-    puts "Here is what we know about #{characters.name}:"
+    puts "Here is what we know about #{characters.name.upcase}:"
     puts "Culture: #{characters.culture}"
     puts "Titles: #{characters.titles}"
     puts "Aliases: #{characters.aliases}"
     puts "Played By: #{characters.playedBy}"
-    puts "Gender: #{characters.gender}"
+    puts "Gender: #{characters.gender.downcase}"
     puts "Born: #{characters.born}"
     puts "Died: #{characters.died}"
     puts "Father: #{characters.father}"
