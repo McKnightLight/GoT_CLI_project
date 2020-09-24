@@ -21,10 +21,12 @@ class CLI
     if 
       input == "bran"
       puts "We understand. It's not how we wanted things to end, either."
+      #countdown?
       puts "Goodbye!"
       exit
     elsif !input.to_i.between?(1, Characters.all.count)
-      puts "A character has no name. Please try again."
+      puts "A character has no name."
+      puts "Please try again."
       list_characters
       menu
     elsif
