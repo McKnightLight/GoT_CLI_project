@@ -1,6 +1,6 @@
 # This is a CLI for "An API of Ice and Fire"
 
-# Unfortunetly, we cannot change the ending but we can take you for a stroll down memory lane with some of your favorite Game of Thrones characters."
+# Unfortunately, we cannot change the ending to the television series, neither can we finish writing the book series, but we can take you for a stroll down memory lane with some of your favorite Game of Thrones characters."
 
 # GotApi
 
@@ -26,7 +26,7 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+This is a CLI project developed by McKnightLight for Flatiron School, and is not authoried or encouraged for any other use.
 
 ## Development
 
